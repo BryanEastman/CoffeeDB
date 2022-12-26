@@ -3,7 +3,7 @@
 BEGIN;
 
 
-CREATE TABLE IF NOT EXISTS public."Coffee"
+CREATE TABLE IF NOT EXISTS "Coffee"
 (
     "CoffeeID" integer,
     "CoffeeProcess" character varying,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS public."Coffee"
     PRIMARY KEY ("CoffeeID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Supplier"
+CREATE TABLE IF NOT EXISTS "Supplier"
 (
     "SupplierID" integer,
     "SupplierName" character varying,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS public."Supplier"
     PRIMARY KEY ("SupplierID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Farm"
+CREATE TABLE IF NOT EXISTS "Farm"
 (
     "FarmID" integer,
     "FarmName" character varying,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS public."Farm"
     PRIMARY KEY ("FarmID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Roast"
+CREATE TABLE IF NOT EXISTS "Roast"
 (
     "RoastID" integer,
     "RoastDate" timestamp with time zone,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS public."Roast"
     PRIMARY KEY ("RoastID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Order"
+CREATE TABLE IF NOT EXISTS "Order"
 (
     "OrderID" integer,
     "OrderQTY" integer,
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS public."Order"
     PRIMARY KEY ("OrderID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Varietal"
+CREATE TABLE IF NOT EXISTS "Varietal"
 (
     "VarietalID" integer,
     "VarietalName" character varying,
@@ -62,10 +62,10 @@ CREATE TABLE IF NOT EXISTS public."Varietal"
     PRIMARY KEY ("VarietalID")
 );
 
-COMMENT ON TABLE public."Varietal"
+COMMENT ON TABLE "Varietal"
     IS 'Entity to Represent Varietals and join onto Coffee entity, as a single coffee entity may contain multiple different varietals from a single lot';
 
-CREATE TABLE IF NOT EXISTS public."Roaster"
+CREATE TABLE IF NOT EXISTS "Roaster"
 (
     "RoasterID" integer,
     "RoasterMake" character varying,
@@ -77,14 +77,14 @@ CREATE TABLE IF NOT EXISTS public."Roaster"
     PRIMARY KEY ("RoasterID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Operator"
+CREATE TABLE IF NOT EXISTS "Operator"
 (
     "OperatorID" integer,
     "OperatorName" character varying,
     PRIMARY KEY ("OperatorID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Cupping"
+CREATE TABLE IF NOT EXISTS "Cupping"
 (
     "CuppingSessionID" integer,
     "CuppingSessionDate" timestamp with time zone,
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS public."Cupping"
     PRIMARY KEY ("CuppingSessionID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Brew"
+CREATE TABLE IF NOT EXISTS "Brew"
 (
     "BrewID" integer,
     "BrewDate" timestamp with time zone,
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS public."Brew"
     PRIMARY KEY ("BrewID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Brewer"
+CREATE TABLE IF NOT EXISTS "Brewer"
 (
     "BrewerID" integer,
     "BrewerType" character varying,
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS public."Brewer"
     PRIMARY KEY ("BrewerID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Grinder"
+CREATE TABLE IF NOT EXISTS "Grinder"
 (
     "GrinderID" integer,
     "GrinderMake" character varying,
@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS public."Grinder"
     PRIMARY KEY ("GrinderID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Burr"
+CREATE TABLE IF NOT EXISTS "Burr"
 (
     "BurrID" integer,
     "BurrSize_mm" real,
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS public."Burr"
     PRIMARY KEY ("BurrID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Refractometer"
+CREATE TABLE IF NOT EXISTS "Refractometer"
 (
     "RefractometerID" integer,
     "RefractometerMake" character varying,
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS public."Refractometer"
     PRIMARY KEY ("RefractometerID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Refraction"
+CREATE TABLE IF NOT EXISTS "Refraction"
 (
     "RefractionID" integer,
     "RefractionTDS" real,
@@ -177,7 +177,7 @@ CREATE TABLE IF NOT EXISTS public."Refraction"
     PRIMARY KEY ("RefractionID")
 );
 
-CREATE TABLE IF NOT EXISTS public."Scale"
+CREATE TABLE IF NOT EXISTS "Scale"
 (
     "ScaleID" integer,
     "ScaleMake" character varying,
@@ -190,161 +190,161 @@ CREATE TABLE IF NOT EXISTS public."Scale"
     PRIMARY KEY ("ScaleID")
 );
 
-ALTER TABLE IF EXISTS public."Coffee"
+ALTER TABLE IF EXISTS "Coffee"
     ADD FOREIGN KEY ("FarmID")
-    REFERENCES public."Farm" ("FarmID") MATCH SIMPLE
+    REFERENCES "Farm" ("FarmID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Coffee"
+ALTER TABLE IF EXISTS "Coffee"
     ADD FOREIGN KEY ("OrderID")
-    REFERENCES public."Order" ("OrderID") MATCH SIMPLE
+    REFERENCES "Order" ("OrderID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Coffee"
+ALTER TABLE IF EXISTS "Coffee"
     ADD FOREIGN KEY ("OrderID")
-    REFERENCES public."Order" ("OrderID") MATCH SIMPLE
+    REFERENCES "Order" ("OrderID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Roast"
+ALTER TABLE IF EXISTS "Roast"
     ADD FOREIGN KEY ("CoffeeID")
-    REFERENCES public."Coffee" ("CoffeeID") MATCH SIMPLE
+    REFERENCES "Coffee" ("CoffeeID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Roast"
+ALTER TABLE IF EXISTS "Roast"
     ADD FOREIGN KEY ("RoasterID")
-    REFERENCES public."Roaster" ("RoasterID") MATCH SIMPLE
+    REFERENCES "Roaster" ("RoasterID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Roast"
+ALTER TABLE IF EXISTS "Roast"
     ADD FOREIGN KEY ("OperatorID")
-    REFERENCES public."Operator" ("OperatorID") MATCH SIMPLE
+    REFERENCES "Operator" ("OperatorID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Order"
+ALTER TABLE IF EXISTS "Order"
     ADD FOREIGN KEY ("SupplierID")
-    REFERENCES public."Supplier" ("SupplierID") MATCH SIMPLE
+    REFERENCES "Supplier" ("SupplierID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Varietal"
+ALTER TABLE IF EXISTS "Varietal"
     ADD FOREIGN KEY ("CoffeeID")
-    REFERENCES public."Coffee" ("CoffeeID") MATCH SIMPLE
+    REFERENCES "Coffee" ("CoffeeID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Cupping"
+ALTER TABLE IF EXISTS "Cupping"
     ADD FOREIGN KEY ("RoastID")
-    REFERENCES public."Roast" ("RoastID") MATCH SIMPLE
+    REFERENCES "Roast" ("RoastID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Cupping"
+ALTER TABLE IF EXISTS "Cupping"
     ADD FOREIGN KEY ("OperatorID")
-    REFERENCES public."Operator" ("OperatorID") MATCH SIMPLE
+    REFERENCES "Operator" ("OperatorID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Cupping"
+ALTER TABLE IF EXISTS "Cupping"
     ADD FOREIGN KEY ("ScaleID")
-    REFERENCES public."Scale" ("ScaleID") MATCH SIMPLE
+    REFERENCES "Scale" ("ScaleID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Brew"
+ALTER TABLE IF EXISTS "Brew"
     ADD FOREIGN KEY ("RoastID")
-    REFERENCES public."Roast" ("RoastID") MATCH SIMPLE
+    REFERENCES "Roast" ("RoastID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Brew"
+ALTER TABLE IF EXISTS "Brew"
     ADD FOREIGN KEY ("OperatorID")
-    REFERENCES public."Operator" ("OperatorID") MATCH SIMPLE
+    REFERENCES "Operator" ("OperatorID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Brew"
+ALTER TABLE IF EXISTS "Brew"
     ADD FOREIGN KEY ("BrewerID")
-    REFERENCES public."Brewer" ("BrewerID") MATCH SIMPLE
+    REFERENCES "Brewer" ("BrewerID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Brew"
+ALTER TABLE IF EXISTS "Brew"
     ADD FOREIGN KEY ("GrinderID")
-    REFERENCES public."Grinder" ("GrinderID") MATCH SIMPLE
+    REFERENCES "Grinder" ("GrinderID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Brew"
+ALTER TABLE IF EXISTS "Brew"
     ADD FOREIGN KEY ("ScaleID")
-    REFERENCES public."Scale" ("ScaleID") MATCH SIMPLE
+    REFERENCES "Scale" ("ScaleID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Grinder"
+ALTER TABLE IF EXISTS "Grinder"
     ADD FOREIGN KEY ("BurrID")
-    REFERENCES public."Burr" ("BurrID") MATCH SIMPLE
+    REFERENCES "Burr" ("BurrID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Refraction"
+ALTER TABLE IF EXISTS "Refraction"
     ADD FOREIGN KEY ("SampleID")
-    REFERENCES public."Brew" ("BrewID") MATCH SIMPLE
+    REFERENCES "Brew" ("BrewID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Refraction"
+ALTER TABLE IF EXISTS "Refraction"
     ADD FOREIGN KEY ("SampleID")
-    REFERENCES public."Cupping" ("CuppingSessionID") MATCH SIMPLE
+    REFERENCES "Cupping" ("CuppingSessionID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."Refraction"
+ALTER TABLE IF EXISTS "Refraction"
     ADD FOREIGN KEY ("RefractometerID")
-    REFERENCES public."Refractometer" ("RefractometerID") MATCH SIMPLE
+    REFERENCES "Refractometer" ("RefractometerID") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
