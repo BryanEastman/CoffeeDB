@@ -1,0 +1,158 @@
+pub enum num_str {
+    Float(f64),
+    Text(String),
+}
+
+pub struct raw_log {
+    version: String,
+    revision: String,
+    build: String,
+    artisan_os: String,
+    artisan_os_version: String,
+    mode: String,
+    viewerMode: bool,
+    timeindex: Vec<i64>,
+    flavors: Vec<f64>,
+    flavorlabels, Vec<String>, 
+    flavorstartangle: i64,
+    flavoraspect: f64,
+    title: String,
+    locale: String,
+    beans: String,
+    weight: Vec<num_str>,
+    volume: Vec<num_str>,
+    density:  Vec<num_str>,
+    density_roasted: Vec<num_str>, 
+    roastertype: String,
+    roastersize: i64,
+    roasterheating: i64,
+    machinesetup: String,
+    operator: String,
+    organization: String,
+    drumspeed: String,
+    heavyFC: bool,
+    lowFC: bool,
+    lightCut: bool,
+    darkCut: bool,
+    drops: bool, 
+    oily: bool,
+    uneven: bool,
+    tipping: bool, 
+    scorching: bool,
+    divots: bool,
+    whole_color: i64,
+    ground_color: i64,
+    color_system: String,
+    volumeCalcWeightIn: String,
+    volumeCalcWeightOut: String,
+    roastdate: String,
+    roastisodate: String,
+    roasttime: String,
+    roastUUID: String,
+    beansize: String,
+    beansize_min: String,
+    beansize_max: String,
+    specialevents: Vec<String>,
+    specialeventstype: Vec<String>,
+    specialeventsvalue: Vec<String>, 
+    specialeventsStrings: Vec<String>,
+    etypes: Vec<String>, 
+    roastingnotes: String, 
+    cuppingnotes: String,
+    timex: Vec<f64>,
+    temp1: Vec<f64>,
+    phases: Vec<i64>,
+    zmax: f64,
+    zmin: f64,
+    ymax: f64,
+    ymin: f64,
+    xmin: f64,
+    xmax: f64,
+    ambientTemp: f64,
+    ambient_humidity: f64,
+    ambient_pressure: f64,
+    moisture_greens: f64,
+    greens_temp: f64,
+    moisture_roasted: f64,
+    extradevices: Vec<f64>,
+    extraname1: Vec<String>,
+    extraname2: Vec<String>,
+    extratimex: Vec<Vec<f64>>,
+    extratemp2: Vec<vec<f64>>,
+    extramathexpression1: Vec<String>,
+    extramathexpression2: Vec<String>,
+    extradevicecolor1: Vec<String>,
+    extradevicecolor2: Vec<String>,
+    extraLCDvisibility1: Vec<bool>,
+    extraLCDvisibility2: Vec<bool>,
+    extraCurveVisibility1: Vec<bool>,
+    extraCurveVisibility2: Vec<bool>,
+    extraDelta2: Vec<bool>,
+    extraFill1: Vec<f64>,
+    extraFill2: Vec<f64>,
+    extramarkersizes1: Vec<f64>,
+    extramarkersizes2: Vec<f64>,
+    extramarkers1: Vec<String>,
+    extramarkers2: Vec<String>,
+    extralinewidths1: Vec<f64>,
+    extralinewidths2: Vec<f64>,
+    extralinestyles1: Vec<String>,
+    extralinestyles2: Vec<String>,
+    extradrawstyles1: Vec<String>,
+    extradrawstyles2: Vec<String>,
+    externalprogram: String,
+    externaloutprogram: String,
+    extraNoneTempHint1: Vec<bool>, 
+    extraNoneTempHint2: Vec<bool>,
+    alarmsetlabel: String,
+    alarmflag: Vec<
+}
+
+pub struct flavors {
+    acidity: f64,
+    aftertaste: f64,
+    clean_cup: f64,
+    head: f64,
+    fragrance: f64, 
+    sweetness: f64,
+    aroma: f64,
+    balance: f64,
+    body: f64
+}
+
+pub struct defects {
+    heavy_fc: bool,
+    low_fc: bool,
+    light_cut: bool,
+    dark_cut: bool,
+    drops: bool,
+    oily: bool,
+    uneven: bool,
+    tipping: bool,
+    scorching: bool,
+    divots: bool 
+}
+
+pub struct roaster {
+    roastertype: String
+}
+
+pub struct roast {
+    roasterisodate: String,
+    roasttime: String,
+    roastepoch: i64,
+    roasttzzoffset: i64,
+    roastbatchnr: i64,
+    roastbatchprefix: String,
+    roastbatchpos: i64,
+    roastUUID: String,
+
+}
+
+pub struct operator {
+    operatorid: f64
+}
+
+pub struct {
+
+}
