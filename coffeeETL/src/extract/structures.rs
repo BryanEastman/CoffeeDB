@@ -1,14 +1,14 @@
-use std::fs::write;
-use serde_json;
 use serde::{Deserialize, Serialize};
-use std::borrow::Cow;
 
+#[allow(non_snake_case)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct InOutScale(f32, f32, String);
 
+#[allow(non_snake_case)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct WeightVol(f32, String, f32, String);
 
+#[allow(non_snake_case)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ComputedField{
     pub CHARGE_ET: f32,
@@ -75,6 +75,7 @@ pub struct ComputedField{
     pub KWH_roast_per_green_kg: f32
 }
 
+#[allow(non_snake_case)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct RawLog {
     pub version: String,
@@ -216,6 +217,7 @@ pub struct RawLog {
     pub sourcetypes: Vec<f32>
 } 
 
+#[allow(non_snake_case)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Flavors {
     pub acidity: f32,
@@ -229,6 +231,7 @@ pub struct Flavors {
     pub body: f32,
 }
 
+#[allow(non_snake_case)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Defects {
     pub heavy_fc: bool,
@@ -243,10 +246,13 @@ pub struct Defects {
     pub divots: bool 
 }
 
+#[allow(non_snake_case)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Roaster {
     pub roastertype: String,
 }
+
+#[allow(non_snake_case)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Roast {
     pub roasterisodate: String,
@@ -259,7 +265,10 @@ pub struct Roast {
     pub roastUUID: String,
 
 }
+
+#[allow(non_snake_case)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Operator {
-    pub operatorid: f32
+    pub operatorname: String,
+    
 }

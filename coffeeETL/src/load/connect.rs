@@ -1,9 +1,8 @@
-use std::env;
 use std::io;
 use std::io::{BufReader};
 use std::fs::File;
 
-use crate::config::{init, Conf};
+use crate::config::{Conf};
 
 fn get_password() -> String {
     println!("enter password: ");

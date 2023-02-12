@@ -1,15 +1,8 @@
 use std::env;
-use std::fs::File;
-use std::io::BufReader;
 
 use crate::load::connect::connection;
-use crate::config::{init, Conf};
-use crate::extract;
-
-struct Operator {
-    operator_name: String,
-    operator_id: i32,
-}
+use crate::config::{init};
+use crate::extract::parse::file_loop;
 
 pub mod extract;
 // pub mod transform;
@@ -23,7 +16,7 @@ pub fn main() -> Result<(), std::io::Error> {
     match args[1].trim() {
         "init" => init(&args),
         "load" => connection(),
-        "transf" => parse::file_loop(),
+        "transf" => file_loop(),
         _ => Ok(println!("invalid argument")),
     }.unwrap();
 
