@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS organization (
+    OrganizationID INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 START 100)
+    , OrganizationName VARCHAR(128) UNIQUE NOT NULL
+    , OrganizationCity VARCHAR(128)
+    , OrganizationState VARCHAR(128)
+)

@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS operator (
+    OperatorID INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 START 100)
+    , OperatorName VARCHAR(64)
+    , OrganizationID INT REFERENCES organization
+)
