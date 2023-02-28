@@ -2,7 +2,6 @@ CREATE TABLE IF NOT EXISTS roast (
     RoastID INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 START 100)
     , RoastDate DATE NOT NULL
     , RoastTime TIME NOT NULL
-    , RoasterName VARCHAR(64)
     , ChargeET REAL NOT NULL
     , ChargeBT REAL NOT NULL
     , TurningTime REAL NOT NULL
@@ -41,4 +40,7 @@ CREATE TABLE IF NOT EXISTS roast (
     , TempAmbient: REAL NOT NULL
     , DET: REAL NOT NULL
     , DBT: REAL NOT NULL
+    , BeansID INT NOT NULL REFERENCES beans
+    , OperatorID INT NOT NULL REFERENCES operator
+    -- todo: roaster id FK
 )
